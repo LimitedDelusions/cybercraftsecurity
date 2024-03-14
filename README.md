@@ -1,6 +1,7 @@
 ---
 layout: default
-title: CyberCraft Security
-shortTitle: CyberCraft
+title: CyberCraftSecurity
 ---
+
+
 Welcome! This is where adventure begins!
