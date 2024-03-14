@@ -1,3 +1,3 @@
-# cybercraftsecurity.github.io
+# cybercraftsecurity
 
 Welcome! This is where the magic begins.
