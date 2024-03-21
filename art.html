@@ -9,6 +9,9 @@
 <body>
     <header>
         <h1>CyberCraft Security</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search AI art..." id="searchInput">
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -29,7 +32,7 @@
         <section>
             <h2>AI Art</h2>
             <div class="search-bar">
-                <input type="text" placeholder="Search AI art...">
+                <input type="text" placeholder="Search AI art..." id="searchInput">
             </div>
         </section>
         
@@ -57,5 +60,24 @@
     <footer>
         <p>&copy; 2023 CyberCraft Security. All rights reserved.</p>
     </footer>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const artworks = document.querySelectorAll('section h3');
+
+            artworks.forEach(artwork => {
+                const section = artwork.parentNode;
+                const artworkTitle = artwork.textContent.toLowerCase();
+                if (artworkTitle.includes(searchTerm)) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
