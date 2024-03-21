@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-    color: #fff;
+    color: #333;
     margin: 0;
     padding: 20px;
 }
@@ -70,6 +70,8 @@ nav ul li ul li {
 }
 
 .search-bar input[type="text"] {
+    background-color: #333;
+    color: #fff;
     padding: 8px;
     width: 300px;
     font-size: 16px;
@@ -77,6 +79,7 @@ nav ul li ul li {
 
 .blog-post {
     background-color: #333;
+    color: #fff;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -84,12 +87,14 @@ nav ul li ul li {
 /* Artwork Styles */
 .artwork {
     background-color: #333;
+    color: #fff;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .project {
     background-color: #333;
+    color: #fff;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
