@@ -139,19 +139,22 @@
         }
 
         // Search content
-        searchInput.addEventListener('input', function() {
+       searchInput.addEventListener('input', function() {
             const searchTerm = searchInput.value.toLowerCase();
-
+        
             if (searchTerm.trim() === '') {
                 // Reset content if search input is empty
-                document.body.innerHTML = allContent;
+                document.body.textContent = allContent;
             } else {
                 // Filter content based on search term
                 const filteredContent = allContent.replace(
                     new RegExp(searchTerm, 'gi'),
                     match => `<mark>${match}</mark>`
                 );
-                document.body.innerHTML = filteredContent;
+                const tempElement = document.createElement('div');
+                tempElement.innerHTML = filteredContent;
+                document.body.textContent = '';
+                document.body.appendChild(tempElement);
             }
         });
 
