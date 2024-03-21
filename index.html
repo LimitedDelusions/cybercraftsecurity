@@ -11,7 +11,7 @@
         <h1>CyberCraft Security</h1>
         <div class="search-bar">
             <input type="text" placeholder="Search site..." id="searchInput">
-            <div id="searchResults"></div> <!-- Container for displaying search results -->
+            <div id="searchResultsDropdown" class="search-results-dropdown"></div> <!-- Dropdown for displaying search results -->
         </div>
         <nav>
             <ul>
@@ -30,9 +30,6 @@
     </header>
     
     <main>
-        <section>
-        <h2>Search Results</h2>
-        <div id="searchResults"></div>
         <section>
             <h2>Welcome to CyberCraft Security</h2>
             <p>We are a cybersecurity company dedicated to providing top-notch security solutions for individuals and businesses. Our team of experts specializes in the latest technologies and techniques to protect your digital assets from cyber threats.</p>
@@ -59,9 +56,6 @@
             <p>Artificial Intelligence (AI) has been a game-changer in the field of cybersecurity. With its ability to analyze vast amounts of data and identify patterns, AI has become an invaluable tool in detecting and preventing cyber threats.</p>
             <p>At CyberCraft Security, we leverage the power of AI to enhance our security solutions. Our AI-driven systems can detect anomalies, identify potential vulnerabilities, and provide real-time threat intelligence, ensuring that your digital assets are safeguarded against the most sophisticated attacks.</p>
         </section>
-        
-        
-    </section>
     </main>
     
     <footer>
@@ -69,55 +63,57 @@
     </footer>
     
     <script>
-    const searchInput = document.getElementById('searchInput');
-    const searchResults = document.getElementById('searchResults');
+        const searchInput = document.getElementById('searchInput');
+        const searchResultsDropdown = document.getElementById('searchResultsDropdown');
 
-    searchInput.addEventListener('input', function() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const pages = ['blog.html', 'projects.html', 'about.html', 'art.html'];
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const pages = ['blog.html', 'projects.html', 'about.html', 'art.html'];
 
-        // Clear previous search results
-        searchResults.innerHTML = '';
+            // Clear previous search results
+            searchResultsDropdown.innerHTML = '';
 
-        // Fetch content from each page and search for the term
-        Promise.all(pages.map(page => fetch(page).then(response => response.text())))
-            .then(contents => {
-                contents.forEach((content, index) => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(content, 'text/html');
-                    const pageTitle = doc.title;
-                    const pageResults = Array.from(doc.querySelectorAll('h1, h2, h3, p')).filter(element => element.textContent.toLowerCase().includes(searchTerm));
-                    displaySearchResults(pageTitle, pageResults, pages[index]);
+            // Fetch content from each page and search for the term
+            Promise.all(pages.map(page => fetch(page).then(response => response.text())))
+                .then(contents => {
+                    contents.forEach((content, index) => {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(content, 'text/html');
+                        const pageTitle = doc.title;
+                        const pageResults = Array.from(doc.querySelectorAll('h1, h2, h3, p')).filter(element => element.textContent.toLowerCase().includes(searchTerm));
+                        displaySearchResults(pageTitle, pageResults, pages[index]);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching page:', error);
                 });
-            })
-            .catch(error => {
-                console.error('Error fetching page:', error);
-            });
-    });
+        });
 
-    // Function to display search results on the page
-    function displaySearchResults(pageTitle, matches, pageUrl) {
-        if (matches.length > 0) {
-            const pageHeader = document.createElement('h2');
-            pageHeader.textContent = pageTitle;
-            searchResults.appendChild(pageHeader);
+        // Function to display search results in the dropdown
+        function displaySearchResults(pageTitle, matches, pageUrl) {
+            if (matches.length > 0) {
+                const dropdownItem = document.createElement('div');
+                dropdownItem.classList.add('dropdown-item');
 
-            matches.forEach(match => {
-                const resultItem = document.createElement('div');
-                resultItem.textContent = match.textContent;
-                searchResults.appendChild(resultItem);
-            });
+                const pageHeader = document.createElement('h3');
+                pageHeader.textContent = pageTitle;
+                dropdownItem.appendChild(pageHeader);
 
-            const pageLink = document.createElement('a');
-            pageLink.href = pageUrl;
-            pageLink.textContent = 'Go to page';
-            searchResults.appendChild(pageLink);
+                matches.forEach(match => {
+                    const resultItem = document.createElement('div');
+                    resultItem.textContent = match.textContent;
+                    dropdownItem.appendChild(resultItem);
+                });
 
-            const hr = document.createElement('hr');
-            searchResults.appendChild(hr);
+                const pageLink = document.createElement('a');
+                pageLink.href = pageUrl;
+                pageLink.textContent = 'Go to page';
+                dropdownItem.appendChild(pageLink);
+
+                searchResultsDropdown.appendChild(dropdownItem);
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
 </html>
