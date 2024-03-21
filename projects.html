@@ -27,35 +27,60 @@
     
     <main>
         <section>
-            <div class="search-bar">
-                <input type="text" placeholder="Search projects...">
-            </div>
             <h2>Our Projects</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Search projects..." id="searchInput">
+                <div id="searchResults"></div> <!-- Container for displaying search results -->
+            </div>
         </section>
         
         <section>
-            <h3>Project 1: Secure Cloud Migration</h3>
-            <p>In this project, we assisted a large enterprise in migrating their critical infrastructure to a secure cloud environment. Our team conducted a thorough risk assessment, implemented robust security controls, and provided ongoing monitoring and maintenance.</p>
-        </section>
-        
-        <section>
-            <h3>Project 2: Penetration Testing for E-commerce Platform</h3>
-            <p>Our team performed a comprehensive penetration testing engagement for a leading e-commerce platform. We identified and remediated vulnerabilities, ensuring the platform's resilience against cyber threats and protecting sensitive customer data.</p>
-        </section>
-        
-        <section>
-            <h3>Project 3: Incident Response and Forensic Analysis</h3>
-            <p>When a major data breach occurred at a financial institution, we were called in to provide incident response and forensic analysis services. Our experts quickly contained the breach, investigated the root cause, and implemented measures to prevent future incidents.</p>
-        </section>
-        
-        <section>
-            <h3>Project 4: Security Awareness Training</h3>
-            <p>Recognizing the importance of human factors in cybersecurity, we developed and delivered a customized security awareness training program for a multinational corporation. The program aimed to educate employees on best practices and reduce the risk of social engineering attacks.</p>
+            <div class="project">
+                <h3>Project 1: Secure Cloud Migration</h3>
+                <p>In this project, we assisted a large enterprise in migrating their critical infrastructure to a secure cloud environment. Our team conducted a thorough risk assessment, implemented robust security controls, and provided ongoing monitoring and maintenance.</p>
+            </div>
+            
+            <div class="project">
+                <h3>Project 2: Penetration Testing for E-commerce Platform</h3>
+                <p>Our team performed a comprehensive penetration testing engagement for a leading e-commerce platform. We identified and remediated vulnerabilities, ensuring the platform's resilience against cyber threats and protecting sensitive customer data.</p>
+            </div>
+            
+            <div class="project">
+                <h3>Project 3: Incident Response and Forensic Analysis</h3>
+                <p>When a major data breach occurred at a financial institution, we were called in to provide incident response and forensic analysis services. Our experts quickly contained the breach, investigated the root cause, and implemented measures to prevent future incidents.</p>
+            </div>
+            
+            <div class="project">
+                <h3>Project 4: Security Awareness Training</h3>
+                <p>Recognizing the importance of human factors in cybersecurity, we developed and delivered a customized security awareness training program for a multinational corporation. The program aimed to educate employees on best practices and reduce the risk of social engineering attacks.</p>
+            </div>
         </section>
     </main>
     
     <footer>
         <p>&copy; 2023 CyberCraft Security. All rights reserved.</p>
     </footer>
+    
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const projects = document.querySelectorAll('.project');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            // Clear previous search results
+            searchResults.innerHTML = '';
+
+            projects.forEach(project => {
+                const projectText = project.textContent.toLowerCase();
+                if (projectText.includes(searchTerm)) {
+                    const resultItem = document.createElement('div');
+                    resultItem.textContent = projectText;
+                    searchResults.appendChild(resultItem);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
