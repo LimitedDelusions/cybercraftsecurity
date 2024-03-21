@@ -14,10 +14,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
+    border: none;
+    border-radius: 20px;
+    outline: none;
 }
 
 h1 {
