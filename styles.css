@@ -110,7 +110,7 @@ nav ul li ul li {
 }
 /* Background Image Styles */
 body {
-    background-image: url('images/background.png'); /* Corrected path */
+    background-image: url('images/background.jpg'); /* Corrected path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
