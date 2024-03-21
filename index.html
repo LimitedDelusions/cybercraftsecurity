@@ -88,6 +88,10 @@
         </nav>
     </header>
     
+    <div class="search-bar">
+        <input type="text" placeholder="Search site..." id="searchInput">
+    </div>
+    
     <main>
         <section>
             <h2>Welcome to CyberCraft Security</h2>
@@ -120,5 +124,39 @@
     <footer>
         <p>&copy; 2023 CyberCraft Security. All rights reserved.</p>
     </footer>
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const pages = ['index.html', 'about.html', 'projects.html', 'blog.html', 'art.html'];
+        let allContent = '';
+
+        // Fetch content from all pages
+        async function fetchContent() {
+            for (const page of pages) {
+                const response = await fetch(page);
+                const pageContent = await response.text();
+                allContent += pageContent;
+            }
+        }
+
+        // Search content
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            if (searchTerm.trim() === '') {
+                // Reset content if search input is empty
+                document.body.innerHTML = allContent;
+            } else {
+                // Filter content based on search term
+                const filteredContent = allContent.replace(
+                    new RegExp(searchTerm, 'gi'),
+                    match => `<mark>${match}</mark>`
+                );
+                document.body.innerHTML = filteredContent;
+            }
+        });
+
+        // Fetch content when the page loads
+        fetchContent();
+    </script>
 </body>
 </html>
