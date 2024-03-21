@@ -11,6 +11,7 @@
         <h1>CyberCraft Security</h1>
         <div class="search-bar">
             <input type="text" placeholder="Search site..." id="searchInput">
+            <div id="searchResults"></div> <!-- Container for displaying search results -->
         </div>
         <nav>
             <ul>
@@ -63,11 +64,15 @@
     
     <script>
         const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
 
         searchInput.addEventListener('input', function() {
             const searchTerm = searchInput.value.toLowerCase();
             const pages = ['blog.html', 'projects.html', 'about.html', 'art.html'];
             let results = [];
+
+            // Clear previous search results
+            searchResults.innerHTML = '';
 
             // Fetch content from each page and search for the term
             Promise.all(pages.map(page => fetch(page).then(response => response.text())))
@@ -80,10 +85,12 @@
                 });
 
                 // Display search results
-                console.log('Search results:');
                 results.forEach(result => {
-                    console.log(`Page: ${result.page}`);
-                    result.matches.forEach(match => console.log(match.textContent));
+                    result.matches.forEach(match => {
+                        const resultItem = document.createElement('div');
+                        resultItem.textContent = `${result.page}: ${match.textContent}`;
+                        searchResults.appendChild(resultItem);
+                    });
                 });
             })
             .catch(error => {
@@ -93,4 +100,3 @@
     </script>
 </body>
 </html>
-
