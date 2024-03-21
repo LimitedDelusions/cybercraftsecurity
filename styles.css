@@ -26,6 +26,9 @@ h1 {
     font-size: 48px;
     text-align: center;
 }
+h2 {
+    color: #000000;
+}
 /* Background Image Styles */
 body {
     background-image: url('images/background.jpg'); /* Corrected path */
