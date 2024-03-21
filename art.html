@@ -57,24 +57,27 @@
     <footer>
         <p>&copy; 2023 CyberCraft Security. All rights reserved.</p>
     </footer>
-
     <script>
-        const searchInput = document.getElementById('searchInput');
+    const searchInput = document.getElementById('searchInput');
+    const artworks = document.querySelectorAll('section');
 
-        searchInput.addEventListener('input', function() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const artworks = document.querySelectorAll('section h3');
+    searchInput.addEventListener('input', function() {
+        const searchTerm = searchInput.value.toLowerCase();
 
-            artworks.forEach(artwork => {
-                const section = artwork.parentNode;
-                const artworkTitle = artwork.textContent.toLowerCase();
-                if (artworkTitle.includes(searchTerm)) {
-                    section.style.display = 'block';
-                } else {
-                    section.style.display = 'none';
+        artworks.forEach(artwork => {
+            const artworkTitle = artwork.querySelector('h3').textContent.toLowerCase();
+            const artworkDescription = artwork.querySelector('p').textContent.toLowerCase();
+            const isVisible = artwork.style.display !== 'none'; // Check if the artwork is currently visible
+
+            if (artworkTitle.includes(searchTerm) || artworkDescription.includes(searchTerm)) {
+                if (!isVisible) {
+                    artwork.style.display = 'block';
                 }
-            });
+            } else {
+                artwork.style.display = 'none';
+            }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
