@@ -70,20 +70,20 @@ nav ul li ul li {
 }
 
 .blog-post {
-    background-color: #fff;
+    background-color: #333;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 /* Artwork Styles */
 .artwork {
-    background-color: #fff;
+    background-color: #333;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .project {
-    background-color: #fff;
+    background-color: #333;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -102,7 +102,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white overlay */
+    background-color: rgba(200, 200, 200, 0.5); /* Semi-transparent gray overlay */
     z-index: -1;
 }
 
