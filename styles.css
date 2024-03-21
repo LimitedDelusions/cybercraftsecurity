@@ -117,14 +117,13 @@ body {
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100vw;
     height: 100vh;
     background-color: rgba(200, 200, 200, 0.7); /* Semi-transparent gray overlay */
     z-index: 0;
 }
+
 
 /* Default link color */
 a {
