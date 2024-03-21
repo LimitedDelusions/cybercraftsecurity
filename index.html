@@ -31,6 +31,9 @@
     
     <main>
         <section>
+        <h2>Search Results</h2>
+        <div id="searchResults"></div>
+        <section>
             <h2>Welcome to CyberCraft Security</h2>
             <p>We are a cybersecurity company dedicated to providing top-notch security solutions for individuals and businesses. Our team of experts specializes in the latest technologies and techniques to protect your digital assets from cyber threats.</p>
         </section>
@@ -56,6 +59,9 @@
             <p>Artificial Intelligence (AI) has been a game-changer in the field of cybersecurity. With its ability to analyze vast amounts of data and identify patterns, AI has become an invaluable tool in detecting and preventing cyber threats.</p>
             <p>At CyberCraft Security, we leverage the power of AI to enhance our security solutions. Our AI-driven systems can detect anomalies, identify potential vulnerabilities, and provide real-time threat intelligence, ensuring that your digital assets are safeguarded against the most sophisticated attacks.</p>
         </section>
+        
+        
+    </section>
     </main>
     
     <footer>
@@ -63,40 +69,55 @@
     </footer>
     
     <script>
-        const searchInput = document.getElementById('searchInput');
-        const searchResults = document.getElementById('searchResults');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
 
-        searchInput.addEventListener('input', function() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const pages = ['blog.html', 'projects.html', 'about.html', 'art.html'];
-            let results = [];
+    searchInput.addEventListener('input', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const pages = ['blog.html', 'projects.html', 'about.html', 'art.html'];
 
-            // Clear previous search results
-            searchResults.innerHTML = '';
+        // Clear previous search results
+        searchResults.innerHTML = '';
 
-            // Fetch content from each page and search for the term
-            Promise.all(pages.map(page => fetch(page).then(response => response.text())))
+        // Fetch content from each page and search for the term
+        Promise.all(pages.map(page => fetch(page).then(response => response.text())))
             .then(contents => {
                 contents.forEach((content, index) => {
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(content, 'text/html');
+                    const pageTitle = doc.title;
                     const pageResults = Array.from(doc.querySelectorAll('h1, h2, h3, p')).filter(element => element.textContent.toLowerCase().includes(searchTerm));
-                    results.push({ page: pages[index], matches: pageResults });
-                });
-
-                // Display search results
-                results.forEach(result => {
-                    result.matches.forEach(match => {
-                        const resultItem = document.createElement('div');
-                        resultItem.textContent = `${result.page}: ${match.textContent}`;
-                        searchResults.appendChild(resultItem);
-                    });
+                    displaySearchResults(pageTitle, pageResults, pages[index]);
                 });
             })
             .catch(error => {
                 console.error('Error fetching page:', error);
             });
-        });
-    </script>
+    });
+
+    // Function to display search results on the page
+    function displaySearchResults(pageTitle, matches, pageUrl) {
+        if (matches.length > 0) {
+            const pageHeader = document.createElement('h2');
+            pageHeader.textContent = pageTitle;
+            searchResults.appendChild(pageHeader);
+
+            matches.forEach(match => {
+                const resultItem = document.createElement('div');
+                resultItem.textContent = match.textContent;
+                searchResults.appendChild(resultItem);
+            });
+
+            const pageLink = document.createElement('a');
+            pageLink.href = pageUrl;
+            pageLink.textContent = 'Go to page';
+            searchResults.appendChild(pageLink);
+
+            const hr = document.createElement('hr');
+            searchResults.appendChild(hr);
+        }
+    }
+</script>
+
 </body>
 </html>
