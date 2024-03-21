@@ -112,6 +112,22 @@ body {
     z-index: -1;
 }
 
-ul, p {
-    color: #fff; /* White color */
+/* Default link color */
+a {
+    color: #333; /* Neutral dark gray color */
+}
+
+/* Visited link color */
+a:visited {
+    color: #6c757d; /* Gray color for visited links */
+}
+
+/* Hover state */
+a:hover {
+    color: #ff7f50; /* Coral orange color on hover */
+}
+
+/* Active state */
+a:active {
+    color: #cc5500; /* Dark orange color when link is active */
 }
