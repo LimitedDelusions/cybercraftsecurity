@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - CyberCraft Security</title>
+    <style>
+        /* Modern technology-inspired theme */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+        nav ul li a:hover {
+            background-color: #555;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        nav ul li:hover > ul {
+            display: block;
+        }
+        nav ul li ul li {
+            display: block;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input[type="text"] {
+            padding: 8px;
+            width: 300px;
+            font-size: 16px;
+        }
+        .blog-post {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CyberCraft Security</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li>
+                    <a href="#">More</a>
+                    <ul>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">AI Art</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="search-bar">
+            <input type="text" placeholder="Search blog posts..." id="searchInput">
+        </div>
+        
+        <section>
+            <h2>Recent Blog Posts</h2>
+            
+            <div class="blog-post">
+                <h3>The Rise of Artificial Intelligence in Cybersecurity</h3>
+                <p>In this blog post, we explore how AI is being leveraged to enhance cybersecurity solutions and stay ahead of evolving cyber threats.</p>
+                <a href="#">Read More</a>
+            </div>
+            
+            <div class="blog-post">
+                <h3>5 Cybersecurity Best Practices for Remote Workers</h3>
+                <p>With the increasing trend of remote work, it's crucial to implement strong cybersecurity practices to protect your organization's data and systems.</p>
+                <a href="#">Read More</a>
+            </div>
+            
+            <div class="blog-post">
+                <h3>Demystifying Zero Trust Security Architecture</h3>
+                <p>Learn about the principles and benefits of a Zero Trust security model and how it can help organizations better protect their critical assets.</p>
+                <a href="#">Read More</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 CyberCraft Security. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const blogPosts = document.querySelectorAll('.blog-post');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            blogPosts.forEach(post => {
+                const postText = post.textContent.toLowerCase();
+                if (postText.includes(searchTerm)) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
