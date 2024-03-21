@@ -106,8 +106,6 @@ body {
     z-index: -1;
 }
 
-/* Content on index.html and about.html */
-#index-content,
-#about-content {
-    color: #fff; /* White text color */
+ul, p {
+    color: #FFFFFF; /* White color */
 }
