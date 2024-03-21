@@ -16,6 +16,10 @@ header {
     align-items: center;
 }
 
+h1 {
+    margin: 0; /* Remove default margin */
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -74,7 +78,7 @@ nav ul li ul li {
 
 /* Background Image Styles */
 body {
-    background-image: url('/images/background.jpg');
+    background-image: url('images/background.jpg'); /* Corrected path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -89,6 +93,3 @@ body {
     background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white overlay */
     z-index: -1;
 }
-
-/* Additional Styles (Add your custom styles here) */
-
