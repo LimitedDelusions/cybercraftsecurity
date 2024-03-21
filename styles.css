@@ -5,9 +5,6 @@ body {
     color: #fff;
     margin: 0;
     padding: 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
 }
 
 header {
@@ -136,7 +133,14 @@ nav ul li ul li {
     background-color: rgba(200, 200, 200, 0.7); /* Semi-transparent gray overlay */
     z-index: -1;
 }
-
+.container {
+    background-color: #333; /* Match the header color */
+    color: #fff; /* Text color */
+    padding: 20px;
+    border: 2px solid #333; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 /* Default link color */
 a {
