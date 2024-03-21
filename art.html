@@ -26,58 +26,53 @@
     </header>
     
     <main>
+        <div class="search-bar">
+            <input type="text" placeholder="Search AI art..." id="searchInput">
+        </div>
+        
         <section>
-            <div class="search-bar">
-                <input type="text" placeholder="Search AI art..." id="searchInput">
+            <h2>AI Art Gallery</h2>
+            
+            <div class="artwork">
+                <h3>Neural Network Abstract</h3>
+                <p>This AI-generated artwork explores abstract patterns and forms created by a neural network algorithm. The piece is characterized by vibrant colors and intricate shapes, reflecting the complexity of machine learning processes.</p>
+                <a href="#">View More</a>
             </div>
-            <h2>AI Art</h2>
-        </section>
-        
-        <section>
-            <h3>Artwork 1: Neural Network Abstract</h3>
-            <p>This AI-generated artwork explores abstract patterns and forms created by a neural network algorithm. The piece is characterized by vibrant colors and intricate shapes, reflecting the complexity of machine learning processes.</p>
-        </section>
-        
-        <section>
-            <h3>Artwork 2: Generative Adversarial Portrait</h3>
-            <p>Using a generative adversarial network (GAN), this artwork depicts a surreal portrait that blurs the lines between reality and imagination. The GAN framework enables the creation of hyper-realistic images with dreamlike qualities.</p>
-        </section>
-        
-        <section>
-            <h3>Artwork 3: Deep Dream Landscape</h3>
-            <p>DeepDream is a computer vision algorithm that generates hallucinatory images by enhancing patterns in existing images. This artwork showcases a mesmerizing landscape transformed by the surreal and psychedelic effects of DeepDream.</p>
-        </section>
-        
-        <section>
-            <h3>Artwork 4: Style Transfer Masterpiece</h3>
-            <p>Using style transfer techniques, this artwork combines the content of one image with the artistic style of another, resulting in a unique and visually captivating masterpiece. Style transfer algorithms enable the creation of diverse and innovative artworks.</p>
+            
+            <div class="artwork">
+                <h3>Generative Adversarial Portrait</h3>
+                <p>Using a generative adversarial network (GAN), this artwork depicts a surreal portrait that blurs the lines between reality and imagination. The GAN framework enables the creation of hyper-realistic images with dreamlike qualities.</p>
+                <a href="#">View More</a>
+            </div>
+            
+            <div class="artwork">
+                <h3>Deep Dream Landscape</h3>
+                <p>DeepDream is a computer vision algorithm that generates hallucinatory images by enhancing patterns in existing images. This artwork showcases a mesmerizing landscape transformed by the surreal and psychedelic effects of DeepDream.</p>
+                <a href="#">View More</a>
+            </div>
         </section>
     </main>
     
     <footer>
         <p>&copy; 2023 CyberCraft Security. All rights reserved.</p>
     </footer>
+    
     <script>
-    const searchInput = document.getElementById('searchInput');
-    const artworks = document.querySelectorAll('section');
+        const searchInput = document.getElementById('searchInput');
+        const artworks = document.querySelectorAll('.artwork');
 
-    searchInput.addEventListener('input', function() {
-        const searchTerm = searchInput.value.toLowerCase();
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
 
-        artworks.forEach(artwork => {
-            const artworkTitle = artwork.querySelector('h3').textContent.toLowerCase();
-            const artworkDescription = artwork.querySelector('p').textContent.toLowerCase();
-            const isVisible = artwork.style.display !== 'none'; // Check if the artwork is currently visible
-
-            if (artworkTitle.includes(searchTerm) || artworkDescription.includes(searchTerm)) {
-                if (!isVisible) {
+            artworks.forEach(artwork => {
+                const artworkText = artwork.textContent.toLowerCase();
+                if (artworkText.includes(searchTerm)) {
                     artwork.style.display = 'block';
+                } else {
+                    artwork.style.display = 'none';
                 }
-            } else {
-                artwork.style.display = 'none';
-            }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
