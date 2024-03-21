@@ -154,3 +154,9 @@ a:hover {
 a:active {
     color: #cc5500; /* Dark orange color when link is active */
 }
+
+.index-page,
+.about-page {
+    font-size: 18px; /* Adjust the font size as needed */
+    font-weight: bold;
+}
