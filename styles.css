@@ -34,7 +34,9 @@ body {
     background-repeat: no-repeat;
 
 }
-
+main {
+    margin-top: 50px; /* Adjust the value as needed */
+}
 footer {
     color: #000000;
 }
@@ -88,7 +90,7 @@ nav ul li ul li {
 }
 
 .search-bar input[type="text"] {
-    background-color: #333;
+    background-color: #000000;
     color: #fff;
     padding: 8px;
     width: 300px;
@@ -142,7 +144,7 @@ nav ul li ul li {
     color: #fff; /* Text color */
     padding: 20px;
     border: 2px solid #333; /* Border color */
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 20px; /* Rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
