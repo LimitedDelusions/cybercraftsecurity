@@ -66,24 +66,20 @@
     <footer>
         <p>&copy; 2024 CyberCraft Security. All rights reserved.</p>
     </footer>
-    
+
     <script>
         const searchInput = document.getElementById('searchInput');
-        const searchResults = document.getElementById('searchResults');
         const projects = document.querySelectorAll('.project');
 
         searchInput.addEventListener('input', function() {
             const searchTerm = searchInput.value.toLowerCase();
 
-            // Clear previous search results
-            searchResults.innerHTML = '';
-
             projects.forEach(project => {
                 const projectText = project.textContent.toLowerCase();
                 if (projectText.includes(searchTerm)) {
-                    const resultItem = document.createElement('div');
-                    resultItem.textContent = projectText;
-                    searchResults.appendChild(resultItem);
+                    project.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
                 }
             });
         });
