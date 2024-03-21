@@ -19,7 +19,8 @@ header {
 h1 {
     margin: 0; /* Remove default margin */
     font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-size: 36px;
+    text-align: center;
 }
 
 nav ul {
