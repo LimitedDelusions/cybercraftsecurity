@@ -14,6 +14,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
 }
 
 h1 {
@@ -79,6 +83,9 @@ nav ul li ul li {
     padding: 8px;
     width: 300px;
     font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
 }
 
 .blog-post {
