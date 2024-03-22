@@ -43,6 +43,7 @@ main {
 }
 section {
     margin-top: 25px;
+    align-items: center;
 }
 footer {
     color: #000000;
@@ -161,7 +162,20 @@ nav ul li ul li {
     border-radius: 20px; /* Rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.image-section {
+    text-align: center; /* Center-align the content */
+}
 
+.image-section img {
+    max-width: 100%; /* Ensure the image doesn't exceed its container width */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Add margin below the image */
+}
+
+.image-description {
+    font-size: 16px; /* Adjust font size */
+    color: #000000; /* Adjust text color */
+}
 /* Default link color */
 a {
     color: #fff; /* White */
