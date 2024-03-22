@@ -167,9 +167,10 @@ nav ul li ul li {
 }
 
 .image-section img {
-    display: flex;
-    justify-content: center;
-    height: 100vh;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 10px;
 }
 
 .image-description {
