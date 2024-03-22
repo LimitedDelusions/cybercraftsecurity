@@ -41,6 +41,9 @@ body {
 main {
     margin-top: 50px; /* Adjust the value as needed */
 }
+section {
+    margin-top: 25px;
+}
 footer {
     color: #000000;
 }
