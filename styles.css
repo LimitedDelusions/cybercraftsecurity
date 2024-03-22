@@ -167,14 +167,18 @@ nav ul li ul li {
 }
 
 .image-section img {
-    max-width: 100%; /* Ensure the image doesn't exceed its container width */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 10px; /* Add margin below the image */
+    display: flex;
+    justify-content: center;
+    height: 100vh;
 }
 
 .image-description {
-    font-size: 16px; /* Adjust font size */
-    color: #000000; /* Adjust text color */
+    background-color: #333; /* Match the header color */
+    color: #fff; /* Text color */
+    padding: 20px;
+    border: 2px solid #333; /* Border color */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 /* Default link color */
 a {
