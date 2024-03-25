@@ -39,9 +39,71 @@
         <section class="container">
             <h2>Learning Python</h2>
             <p>I've been embarking on the exciting journey of learning Python for a while now. This project will be devoted to showcasing some of the problems I'm working on.</p>
-            <p>I have tried various programs and websites for learning Python, and the best part is most of them are free. I found a great program through the University of Helsinki where they have a massive online course catalog that is free to anyone who wants to learn! MOOC.fi (https://www.mooc.fi/en/) has been great.</p>
-            <p>They use Microsoft Visual Studio and TestMyCode to make it easy to go through the exercises, test your code, and figure out any problems via the errors. 
+            <p>I have tried various programs and websites for learning Python, and the best part is most of them are free. I found a great program through the University of Helsinki 
+                where they have a massive online course catalog that is free to anyone who wants to learn! MOOC.fi (https://www.mooc.fi/en/) has been great. Part of this project and 
+                the reason I want to share what I'm working on is for my own accountability, but also for any other learners out there that are starting with Python and run into the 
+                same topics. At least they will see the path that I took. It also helps me a lot to have to reiterate what I'm learning and explain it.</p>
+            <p>MOOC uses Microsoft Visual Studio and TestMyCode to make it easy to go through the exercises, test your code, and figure out any problems via the error messages.
                 Highly recommend.</p>
+            <h3><time datetime="2024-03-25"></time>March 25, 2024</h3>
+            <p>I learned about encapsulation today with Python, which is about hiding attributes from clients. Seems very privacy (and by association security) oriented, which is 
+                nice because there hasn't been a lot of content focused on much security yet. Encapsulation works by using private attributes within a class. This allows the developer
+                to only allow access to variables by the use of the class' methods. The authors of the class did not that Python hidden attributes are not necessarily inherently secure,
+                though, and there are ways around that. I looked into this briefly and found there was another "protected" technique using a single underscore, but immediate results
+                did not indicate a way around the private attribute, though I'm sure there are some. I'm excited to learn more about that at some point, but for now I've got to stay focused
+                on learning the basics of this language. Here's the small program I made for this exercise:
+            </p>
+            <pre>
+                class Car:
+                    def __init__(self):
+                        self.__petrol = 0
+                        self.__odometer = 0
+
+                    def __str__(self):
+                        return f"Car: odometer reading {self.__odometer} km, petrol remaining {self.__petrol} litres"
+                    def fill_up(self):
+                        self.__petrol = 60
+                    
+                    def drive(self,km: int):
+                        for x in range(km):
+                            if self.__petrol > 0:
+                                self.__odometer += 1
+                                self.__petrol -= 1
+            </pre>
+            <p>After learning about the encapsulation for attributes in classes, the course went on to explain 'getter' and 'setter' properties for methods within a class. These are used to 
+                access the private attributes within a class as well. The @property decorator is used before a method to define it as a getter, and then the .setter is used after that to
+                define a setter. The private attributes can then be retreived or set by the client as if accessing the attributed directly (even though they're not.) Here's the small program
+                that I made based on the getter and setter attributes:
+            </p>
+            <pre>
+                class Recording:
+
+                    def __init__(self, length:int):
+                        if length > 0:
+                            self.__length = length
+                        else:
+                            raise ValueError("The amount must not be below zero")
+                    
+                    @property
+                    def length(self):
+                        return self.__length
+                    
+                    @length.setter
+                    def length(self, length):
+                        if length > 0:
+                            self.__length = length
+                        else:
+                            raise ValueError("The amount must not be below zero")
+
+                if __name__ == "__main__":
+                    the_wall = Recording(43)
+                    print(the_wall.length)
+                    the_wall.length = 44
+                    print(the_wall.length)
+            <p>One of the interesting items I learned about encapsulation, is that you don't have to let the getter/setter decorators be accessible to the client/public, and you can just
+                use them internally in the class, while making publicly available methods for the client to use. 
+            </p>
+            </pre>
             <h3><time datetime="2024-03-22"></time>March 22, 2024</h3>
             <p>I've worked my way through the Intro parts (1-7) and have begun the "Advanced" course in programming. It's been great, and brings me back to my earlier days in 
                 high school when I took classes in Java and C++. Python is way easier to understand though. This Advanced portion has been focused so far on object, classes, and
