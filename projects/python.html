@@ -46,6 +46,54 @@
                 same topics. At least they will see the path that I took. It also helps me a lot to have to reiterate what I'm learning and explain it.</p>
             <p>MOOC uses Microsoft Visual Studio and TestMyCode to make it easy to go through the exercises, test your code, and figure out any problems via the error messages.
                 Highly recommend.</p>
+            
+            <h3><time datetime="2024-03-29"></time>March 29, 2024</h3>
+            <p>
+                Working more on the classes, we dove into class attributes (or traits, or members). These classes can have variables set at the class level, which seems like it 
+                coudl be extremely useful in certain situations. The examples given were bank interest rates, country codes for phone numbers, and postcodes for cities, but I'm
+                certain some smart programmers have figured out how to use that at a high level. 
+                After learning about class traits we learned about class methods! Of course, how did I not see it coming. These are defined with the decorator @classmethod. Super
+                complicated, I know, but stick with me! Unlike a method within the class, which may use the 'self' parameter, the class methods use 'cls'. This refers to the entire
+                class instead of just the instance of the class (self). This led to a fun exercise using class methods. The class methods themselves were not hard to understand, but
+                figuring out how to determine the greatest frequency of an item and the amount of times an item occurs in a list was interesting:
+            </p>
+            <pre>
+                class ListHelper:
+
+                    def __init__(self,my_list: list):
+                        self.__list = my_list
+
+                    @classmethod
+                    def greatest_frequency(cls,my_list: list):
+                        unique_list = set(my_list)
+                        high_count = 0
+                        for item in my_list:
+                            count = 0
+                            for items in my_list:
+                                if item == items:
+                                    count += 1
+                            if count > high_count:
+                                high_count = count
+                                greatest = item
+                        
+                        return greatest
+                            
+
+                    @classmethod
+                    def doubles(cls,my_list: list):
+                        unique_list = set(my_list)
+                        total = 0
+
+                        for item in unique_list:
+                            count = 0
+                            for items in my_list:
+                                if item == items:
+                                    count += 1
+                            if count >= 2:
+                                total += 1
+                                    
+                        return total
+            </pre>
             <h3><time datetime="2024-03-29"></time>March 29, 2024</h3>
             <p>I started working on these problems again after taking a short break for the NCL Practice Game. This lesson was focused on the scope of class methods and gave some insight
                 into scope and namespaces. Suffice to say, namespaces are areas where variable names or other names are not able to be repeated without causing conflict. Scope is similar
