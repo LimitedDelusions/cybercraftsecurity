@@ -37,6 +37,7 @@
     
     <main>
         <section class="container">
+            
             <h2>Learning Python</h2>
             <p>I've been embarking on the exciting journey of learning Python for a while now. This project will be devoted to showcasing some of the problems I'm working on.</p>
             <p>I have tried various programs and websites for learning Python, and the best part is most of them are free. I found a great program through the University of Helsinki 
@@ -45,6 +46,44 @@
                 same topics. At least they will see the path that I took. It also helps me a lot to have to reiterate what I'm learning and explain it.</p>
             <p>MOOC uses Microsoft Visual Studio and TestMyCode to make it easy to go through the exercises, test your code, and figure out any problems via the error messages.
                 Highly recommend.</p>
+            <h3><time datetime="2024-03-29"></time>March 29, 2024</h3>
+            <p>I started working on these problems again after taking a short break for the NCL Practice Game. This lesson was focused on the scope of class methods and gave some insight
+                into scope and namespaces. Suffice to say, namespaces are areas where variable names or other names are not able to be repeated without causing conflict. Scope is similar
+                if you're thinking of the scope of a name (variable, definition, class), but in this lesson the point was pressed was that the scope can refer to what is visible to a certain
+                portion of the program. A lot of this was defined with the example of a private method within a class, and the lack of accessbility outside of that class. I could see as well
+                how a local variable within a method could reuse a name multiple times if similar functions were being done within those methods (account transactions, math, etc). Here's <thead>
+                code that I wrote for this exercise, showing how to add a service charge to an account when depositing or withdrawing from it:
+            </p>
+            <pre>
+                class BankAccount:
+
+                    def __init__(self,owner: str,acct: str,balance: float):
+                        self.__owner = owner
+                        self.__acct = acct
+                        self.__balance = balance
+
+                    def __str__(self):
+                        pass
+
+                    def deposit(self,amount: float):
+                        if amount > 0:
+                            self.__balance += amount
+                            self.__service_charge()
+
+                    def withdraw(self,amount: float):
+                        if amount > 0 and self.__balance > amount:
+                            self.__balance -= amount
+                            self.__service_charge()
+
+                    @property
+                    def balance(self):
+                        return self.__balance
+                    
+                    def __service_charge(self):
+                        if self.__balance > 0:
+                            self.__balance = self.__balance - (self.__balance * 0.01)
+            </pre>
+
             <h3><time datetime="2024-03-25"></time>March 25, 2024</h3>
             <p>I learned about encapsulation today with Python, which is about hiding attributes from clients. Seems very privacy (and by association security) oriented, which is 
                 nice because there hasn't been a lot of content focused on much security yet. Encapsulation works by using private attributes within a class. This allows the developer
@@ -100,10 +139,11 @@
                     print(the_wall.length)
                     the_wall.length = 44
                     print(the_wall.length)
-            <p>One of the interesting items I learned about encapsulation, is that you don't have to let the getter/setter decorators be accessible to the client/public, and you can just
+            </pre>
+            <p>One of the interesting items I learned about encapsulation, is that you don't have to let the getter/setter decorators be accessible to the client/public, and you can just 
                 use them internally in the class, while making publicly available methods for the client to use. 
             </p>
-            </pre>
+            
             <h3><time datetime="2024-03-22"></time>March 22, 2024</h3>
             <p>I've worked my way through the Intro parts (1-7) and have begun the "Advanced" course in programming. It's been great, and brings me back to my earlier days in 
                 high school when I took classes in Java and C++. Python is way easier to understand though. This Advanced portion has been focused so far on object, classes, and
